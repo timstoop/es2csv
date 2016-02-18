@@ -98,7 +98,8 @@ class Es2csv:
             q=query,
             search_type='scan',
             scroll=self.scroll_time,
-            size=self.scroll_size
+            size=self.scroll_size,
+            ignore_unavailable=self.opts.ignore_unavailable
         )
 
         if '_all' not in self.opts.fields:
@@ -236,6 +237,7 @@ def main():
     p.add_argument('-d', '--delimiter', dest='delimiter', default=',', type=str, help='Delimiter to use in CSV file. Default is "%(default)s".')
     p.add_argument('-m', '--max', dest='max_results', default=0, type=int, metavar='INTEGER', help='Maximum number of results to return. Default is %(default)s.')
     p.add_argument('-k', '--kibana_nested', dest='kibana_nested', action='store_true', help='Format nested fields in Kibana style.')
+    p.add_argument('-c', '--ignore-unavailable', dest='ignore_unavailable', action='store_true', help='Ignore unavailable indexes (missing or closed).')
     p.add_argument('-v', '--version', action='version', version='%(prog)s ' + __version__, help='Show version and exit.')
     p.add_argument('--debug', dest='debug_mode', action='store_true', help='Debug mode on.')
 

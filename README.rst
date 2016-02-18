@@ -43,6 +43,7 @@ Usage
   -d, --delimiter DELIMITER                Delimiter to use in CSV file. Default is ",".
   -m, --max INTEGER                        Maximum number of results to return. Default is 0.
   -k, --kibana_nested                      Format nested fields in Kibana style.
+  -c, --ignore-unavailable                 Ignore unavailable indexes (missing or closed).
   --debug                                  Debug mode on.
   -h, --help                               show this help message and exit
 
